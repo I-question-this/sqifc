@@ -3,5 +3,5 @@ policy = 512
 
 include = dining.c
 cbmc = /usr/bin/cbmc 
-driver = ./driver.c
-tmp = ./tmp.c
+driver = test/driver.c
+tmp = test/tmp.c

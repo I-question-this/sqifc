@@ -3,8 +3,8 @@ policy = 256
 
 include = grade.c
 cbmc = /usr/bin/cbmc 
-driver = ./driver.c
-tmp = ./tmp.c
+driver = test/driver.c
+tmp = test/tmp.c
 
 # N = 16
 # Number of calls to cbmc: 925
