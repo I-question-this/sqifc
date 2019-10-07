@@ -1,6 +1,7 @@
 size = 31
 policy = 512
 
+include = dining.c
 cbmc = /usr/bin/cbmc 
 driver = ./driver.c
 tmp = ./tmp.c

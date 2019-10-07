@@ -1,3 +1,6 @@
+# Temporary files
+test/tmp.c
+
 # Compiled Object files
 *.slo
 *.lo

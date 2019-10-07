@@ -1,16 +1,14 @@
 //============================================================================
 // Name        : SQIFC
 // Author      : Quoc-Sang Phan <dark2bright@gmail.com>
+// Contributor : Tyler Westland <tylerofthewest@gmail.com>
 // Version     : 0.1
 // Copyright   : No
 // Description : Symbolic Quantitative Information Flow Analysis for C
 //============================================================================
 
 #include <assert.h>
-//#include "ex41.c"
-//#include "grade.c"
-#include "dining.c"
-//#include "vote.c"
+//#includeTest
 
 
 int main(void)

@@ -1,6 +1,7 @@
 //============================================================================
 // Name        : SQIFC
 // Author      : Quoc-Sang Phan <dark2bright@gmail.com>
+// Contributor : Tyler Westland <tylerofthewest@gmail.com>
 // Version     : 0.1
 // Copyright   : No
 // Description : Symbolic Quantitative Information Flow Analysis for C
@@ -38,10 +39,13 @@ class sqif {
 	// file processing
 	string src;
 	string asst;
-	size_t found;
+	string include;
+	size_t foundAsst;
+	size_t foundInclude;
 private:
 	int check(int, bool);
 	void doBCP();
+  void setupInclude();
 	void createAssertion(const char*);
 	bool isSAT(const char* pc);
 	void symCount(const char* pc, int i);

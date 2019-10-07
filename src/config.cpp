@@ -1,6 +1,7 @@
 //============================================================================
 // Name        : QIFC
 // Author      : Quoc-Sang Phan <dark2bright@gmail.com>
+// Contributor : Tyler Westland <tylerofthewest@gmail.com>
 // Version     : 0.1
 // Copyright   : No
 // Description : Symbolic Quantitative Information Flow Analysis for C
@@ -86,6 +87,12 @@ const char* config::getDriverPath() {
 
 const char* config::getTmpPath() {
 	return find("tmp")->second.c_str();
+}
+
+const char* config::getTestInclude() {
+  static char include[20];
+  sprintf(include, "#include \"%s\"", find("include")->second.c_str());
+  return include;
 }
 
 int config::getSize() {

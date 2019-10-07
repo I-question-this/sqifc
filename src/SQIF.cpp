@@ -1,12 +1,22 @@
 //============================================================================
 // Name        : SQIFC
 // Author      : Quoc-Sang Phan <dark2bright@gmail.com>
+// Contributor : Tyler Westland <tylerofthewest@gmail.com>
 // Version     : 0.1
 // Copyright   : No
 // Description : Symbolic Quantitative Information Flow Analysis for C
-//============================================================================
-
+//============================================================================ 
 #include "SQIF.h"
+
+void sqif::setupInclude() {
+	ofstream tmp;
+	tmp.open(pConf->getTmpPath());
+
+	src.replace(foundInclude, include.size(), pConf->getTestInclude());
+
+	tmp << src;
+	tmp.close();
+}
 
 void sqif::createAssertion(const char* pc) {
 
@@ -16,11 +26,10 @@ void sqif::createAssertion(const char* pc) {
 	char notpc[512];
 	sprintf(notpc, "!(%s)", pc);
 
-	src.replace(found, asst.size(), notpc); // 10 is the size of "bv[0] == 0"
+	src.replace(foundAsst, asst.size(), notpc); // 10 is the size of "bv[0] == 0"
 	asst = notpc;
 	tmp << src;
 	tmp.close();
-
 }
 
 bool sqif::isSAT(const char* pc) {
@@ -250,6 +259,7 @@ sqif::sqif(config*conf) {
 	cout << "Policy is : " << policy << endl;
 
 	asst = "bv[0] == 0";
+	include = "//#includeTest";
 	// read src file
 	ifstream driver;
 	driver.open(pConf->getDriverPath());
@@ -262,8 +272,10 @@ sqif::sqif(config*conf) {
 	driver.seekg(0, std::ios::beg);
 	src.assign((std::istreambuf_iterator<char>(driver)),
 			std::istreambuf_iterator<char>());
-	found = src.find(asst);
 	driver.close();
+  foundInclude = src.find(include);
+  setupInclude();
+  foundAsst = src.find(asst);
 }
 
 sqif::~sqif() {
