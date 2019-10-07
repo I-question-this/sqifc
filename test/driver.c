@@ -6,6 +6,7 @@
 // Description : Symbolic Quantitative Information Flow Analysis for C
 //============================================================================
 
+#include <assert.h>
 //#include "ex41.c"
 //#include "grade.c"
 #include "dining.c"
