@@ -1,0 +1,6 @@
+size = 31
+
+include = sanitize.c
+cbmc = /usr/bin/cbmc 
+driver = test/driver.c
+tmp = test/tmp.c
