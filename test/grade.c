@@ -8,6 +8,7 @@
 
 typedef unsigned char size_t;
 
+// Harness for CBMC
 size_t nondet_uchar();
 
 int func(){
